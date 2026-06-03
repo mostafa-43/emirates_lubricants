@@ -1,0 +1,6 @@
+node_modules/
+dist/
+drive/
+drive-root/
+*.zip
+*.log
