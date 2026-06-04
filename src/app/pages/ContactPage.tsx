@@ -8,7 +8,7 @@ import { Label } from "../components/ui/label";
 
 export default function ContactPage() {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/971526606888", "_blank");
+    window.open("https://wa.me/971502110108", "_blank");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -50,8 +50,9 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-semibold text-lg mb-3">Phone</h3>
                 <div className="space-y-2 text-gray-600">
-                  <p>Office: 07 243 2241</p>
-                  <p>Mobile: 052 660 6888</p>
+                  <a href="tel:+971502110108" className="block hover:text-red-500 transition-colors">
+                    +971 50 211 0108
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -69,8 +70,9 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-semibold text-lg mb-3">Email</h3>
                 <div className="space-y-2 text-gray-600">
-                  <p>emirates.lubricants@yahoo.com</p>
-                  <p>info@emirateslubricants.com</p>
+                  <a href="mailto:info@emirateslubricant.com" className="block hover:text-red-500 transition-colors">
+                    info@emirateslubricant.com
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -205,15 +207,23 @@ export default function ContactPage() {
                     <p className="text-green-100 mb-4">
                       Get instant support and quick answers to your questions
                     </p>
-                    <Button
-                      onClick={handleWhatsApp}
-                      variant="secondary"
-                      size="lg"
-                      className="w-full"
-                    >
-                      <MessageCircle className="w-5 h-5 mr-2" />
-                      Chat on WhatsApp
-                    </Button>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <Button
+                        onClick={handleWhatsApp}
+                        variant="secondary"
+                        size="lg"
+                        className="w-full"
+                      >
+                        <MessageCircle className="w-5 h-5 mr-2" />
+                        Chat on WhatsApp
+                      </Button>
+                      <a
+                        href="tel:+971502110108"
+                        className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/20"
+                      >
+                        Call +971 50 211 0108
+                      </a>
+                    </div>
                   </div>
                 </div>
               </CardContent>

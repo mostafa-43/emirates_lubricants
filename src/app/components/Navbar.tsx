@@ -7,7 +7,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import ProductsMegaMenu from "./ProductsMegaMenu";
 import { searchProducts } from "../data/products";
 import { companyInfo } from "../data/company";
-import logo from "../../imports/WhatsApp_Image_2026-05-26_at_5.24.26_PM.jpeg";
+import logo from "../../imports/logo.png";
 
 interface NavbarProps {
   onMenuClick: () => void;

@@ -3,12 +3,11 @@ import productsProfileFullPdf from "../../imports/Emirates_Lubricants_Products_P
 import signBoardPdf from "../../imports/Emirates_Sign_Board.pdf?url";
 import factoryImage1 from "../../imports/WhatsApp_Image_2026-05-26_at_5.23.54_PM.jpeg";
 import factoryImage2 from "../../imports/WhatsApp_Image_2026-05-26_at_5.24.18_PM.jpeg";
-import logo from "../../imports/WhatsApp_Image_2026-05-26_at_5.24.26_PM.jpeg";
+import logo from "../../imports/logo.png";
 import goldenWheelLogo from "../../imports/WhatsApp_Image_2026-05-26_at_5.21.23_PM__2_.jpeg";
 import xtremeLogo from "../../imports/WhatsApp_Image_2026-05-26_at_5.21.23_PM__1_.jpeg";
 import nitroLogo from "../../imports/WhatsApp_Image_2026-05-26_at_5.21.22_PM.jpeg";
 import everestLogo from "../../imports/WhatsApp_Image_2026-05-26_at_5.21.23_PM.jpeg";
-import brandLogoExtra from "../../imports/WhatsApp Image 2026-05-26 at 5.21.23 PM (3).jpeg";
 
 export const companyInfo = {
   name: "Emirates Modern Lubricants Factory L.L.C",
@@ -16,8 +15,8 @@ export const companyInfo = {
   arabicName: "الإمــــارات للـــزيـــوت",
   founded: 2004,
   location: "Al Hamra Industrial Zone, Ras Al Khaimah - U.A.E.",
-  phone: ["07 243 2241", "052 660 6888"],
-  email: "emirates.lubricants@yahoo.com",
+  phone: ["+971 50 211 0108"],
+  email: "info@emirateslubricant.com",
   website: "www.emiratslubrican.com",
   productCount: "650+",
   countries: "100+",
@@ -36,11 +35,10 @@ export const companyInfo = {
   logo,
   brands: [
     { name: "Emirates Lubricants", logo },
-    { name: "Golden Wheel", logo: goldenWheelLogo },
-    { name: "Xtreme", logo: xtremeLogo },
-    { name: "Everest", logo: everestLogo },
-    { name: "NITRO Plus", logo: nitroLogo },
-    { name: "Premium Line", logo: brandLogoExtra },
+    { name: "GW", logo: goldenWheelLogo },
+    { name: "Extreme", logo: xtremeLogo },
+    { name: "Eversit", logo: everestLogo },
+    { name: "Nirto", logo: nitroLogo },
   ],
   documents: [
     {

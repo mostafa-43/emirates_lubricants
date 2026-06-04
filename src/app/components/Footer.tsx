@@ -1,9 +1,9 @@
 import { Link } from "react-router";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { categories } from "../data/categories";
 import { companyInfo } from "../data/company";
-import logo from "../../imports/WhatsApp_Image_2026-05-26_at_5.24.26_PM.jpeg";
+import logo from "../../imports/logo.png";
 
 export default function Footer() {
   return (
@@ -57,7 +57,12 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>{companyInfo.phone.join(" | ")}</span>
+                <a
+                  href="tel:+971502110108"
+                  className="hover:text-red-500 transition-colors"
+                >
+                  +971 50 211 0108
+                </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4 flex-shrink-0" />
@@ -65,11 +70,22 @@ export default function Footer() {
               </li>
             </ul>
             <div className="flex items-center gap-3 mt-4">
-              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a key={i} href="#" className="hover:text-red-500 transition-colors">
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/profile.php?id=61569985143275&mibextid=wwXIfr&rdid=eXzUGyow8BolMkUs&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D8g8jfa1g%2F%3Fmibextid%3DwwXIfr#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-500 transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/emirateslubricantsuae?igsh=c3BzMm13cHhzcnFt&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-500 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

@@ -54,6 +54,11 @@ export const getProductCountByCategory = (categoryId: string): number =>
 export const getProductCountBySubcategory = (subcategoryId: string): number =>
   getProductsBySubcategory(subcategoryId).length;
 
+export const getFirstProductImageBySubcategory = (subcategoryId: string): string | undefined => {
+  const product = getProductsBySubcategory(subcategoryId)[0];
+  return product?.images?.[0];
+};
+
 export const searchProducts = (query: string): Product[] => {
   const q = query.toLowerCase().trim();
   if (!q) return products;

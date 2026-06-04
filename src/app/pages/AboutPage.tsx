@@ -89,20 +89,24 @@ export default function AboutPage() {
             <p className="text-xl text-gray-600">{companyInfo.location}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {companyInfo.factoryImages.map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className="rounded-2xl overflow-hidden shadow-xl"
-              >
-                <ImageWithFallback src={img} alt={`Factory view ${i + 1}`} className="w-full h-64 object-cover" />
-              </motion.div>
-            ))}
+          <div className="mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <div className="relative pb-[56.25%] bg-black">
+                <iframe
+                  title="Emirates Lubricants Instagram Video"
+                  src="https://www.instagram.com/p/DFUdu7Ots66/embed"
+                  className="absolute inset-0 w-full h-full"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -120,12 +124,14 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
-              {companyInfo.brands.map((brand) => (
-                <div key={brand.name} className="bg-white p-4 rounded-xl shadow-md">
-                  <ImageWithFallback src={brand.logo} alt={brand.name} className="h-14 w-auto object-contain" />
-                </div>
-              ))}
+            <div className="flex flex-wrap gap-6 justify-center">
+              {companyInfo.brands
+                .filter((brand) => brand.logo)
+                .map((brand) => (
+                  <div key={brand.name} className="bg-white p-6 rounded-3xl shadow-xl flex items-center justify-center">
+                    <ImageWithFallback src={brand.logo} alt={brand.name} className="h-24 w-auto object-contain" />
+                  </div>
+                ))}
             </div>
           </div>
         </div>

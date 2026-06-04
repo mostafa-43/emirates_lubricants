@@ -13,7 +13,9 @@ import {
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { HeroVideo } from "../components/HeroVideo";
 import BrowseByCategory from "../components/BrowseByCategory";
+import { LogoTicker } from "../components/LogoTicker";
 import ProductCard from "../components/ProductCard";
 import { getFeaturedProducts, products } from "../data/products";
 import { companyInfo } from "../data/company";
@@ -122,9 +124,13 @@ export default function HomePage() {
                   ],
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="relative bg-white rounded-3xl p-10 shadow-2xl"
+                className="relative bg-white rounded-3xl p-6 shadow-2xl"
               >
-                <ImageWithFallback src={companyInfo.logo} alt="Emirates Lubricants" className="w-full h-auto" />
+                <HeroVideo
+                  videoId="c4AO5evi6v4"
+                  posterUrl="https://img.youtube.com/vi/c4AO5evi6v4/maxresdefault.jpg"
+                  title="Emirates Lubricants Introduction Video"
+                />
                 <motion.div
                   animate={{ y: [0, -12, 0], rotate: [0, 5, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
@@ -205,17 +211,15 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-1 gap-4"
             >
-              {companyInfo.factoryImages.map((img, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ scale: 1.03 }}
-                  className={`rounded-2xl overflow-hidden shadow-2xl ${i === 0 ? "col-span-2" : ""}`}
-                >
-                  <ImageWithFallback src={img} alt={`Factory ${i + 1}`} className="w-full h-48 object-cover" />
-                </motion.div>
-              ))}
+              <div className="rounded-3xl overflow-hidden shadow-2xl bg-black">
+                <HeroVideo
+                  videoId="F5YegI26wyg"
+                  posterUrl="https://img.youtube.com/vi/F5YegI26wyg/maxresdefault.jpg"
+                  title="Emirates Lubricants Factory Showcase"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -253,24 +257,10 @@ export default function HomePage() {
       </section>
 
       {/* Brands */}
-      <section className="py-16 bg-gray-50 overflow-hidden">
+      <section className="py-16 bg-slate-950 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-10">Our Brands</h2>
-          <div className="flex flex-wrap justify-center gap-10 items-center">
-            {companyInfo.brands.map((brand, i) => (
-              <motion.div
-                key={brand.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                whileHover={{ scale: 1.12, filter: "grayscale(0)" }}
-                className="grayscale hover:grayscale-0 transition-all duration-300"
-              >
-                <ImageWithFallback src={brand.logo} alt={brand.name} className="h-16 w-auto object-contain" />
-              </motion.div>
-            ))}
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-10 text-white">Our Brands</h2>
+          <LogoTicker />
         </div>
       </section>
 

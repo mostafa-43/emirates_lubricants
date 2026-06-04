@@ -5,7 +5,9 @@ import {
   categories,
   getProductCountByCategory,
   getProductCountBySubcategory,
+  getFirstProductImageBySubcategory,
 } from "../data/products";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const iconMap = {
   car: Car,
@@ -95,10 +97,12 @@ export default function BrowseByCategory() {
                     <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
                       Subcategories
                     </p>
-                    <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
                       {category.subcategories.map((sub, subIndex) => {
                         const subCount = getProductCountBySubcategory(sub.id);
                         if (subCount === 0) return null;
+
+                        const productImage = getFirstProductImageBySubcategory(sub.id);
 
                         return (
                           <motion.div
@@ -110,17 +114,27 @@ export default function BrowseByCategory() {
                           >
                             <Link
                               to={`/products/${category.id}?subcategory=${sub.id}`}
-                              className="group flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-gray-50 hover:bg-red-50 hover:border-red-200 transition-all duration-300"
+                              className="group relative block rounded-xl overflow-hidden border border-gray-200 hover:border-red-300 transition-all duration-300 h-48 bg-gray-100"
                             >
-                              <div>
-                                <div className="font-medium text-gray-900 group-hover:text-red-700 transition-colors text-sm">
+                              {productImage && (
+                                <ImageWithFallback
+                                  src={productImage}
+                                  alt={sub.name}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                              )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                <div className="font-medium text-sm group-hover:text-red-300 transition-colors line-clamp-2">
                                   {sub.name}
                                 </div>
-                                <div className="text-xs text-gray-500 mt-0.5">
+                                <div className="text-xs text-gray-300 mt-1">
                                   {subCount} product{subCount !== 1 ? "s" : ""}
                                 </div>
                               </div>
-                              <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-red-600 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <ArrowRight className="w-5 h-5 text-white" />
+                              </div>
                             </Link>
                           </motion.div>
                         );

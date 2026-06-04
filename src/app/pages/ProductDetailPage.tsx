@@ -38,7 +38,7 @@ export default function ProductDetailPage() {
     const message = encodeURIComponent(
       `Hi, I'm interested in ${product.name} (${categoryData?.name} / ${subcategoryData?.name}). Could you provide more information?`
     );
-    window.open(`https://wa.me/971526606888?text=${message}`, "_blank");
+    window.open(`https://wa.me/971502110108?text=${message}`, "_blank");
   };
 
   return (

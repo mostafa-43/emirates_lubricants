@@ -9,3 +9,26 @@ html {
 body {
   overflow-x: hidden;
 }
+
+.logo-ticker {
+  position: relative;
+}
+
+.logo-ticker-track {
+  animation: logoTickerScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.logo-ticker:hover .logo-ticker-track,
+.logo-ticker:focus-within .logo-ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes logoTickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
